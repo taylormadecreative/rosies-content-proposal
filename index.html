@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rosie's Beauty Spa — Social Media Content Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--burgundy:#9B1B21;--beige:#E7D4CC;--dark:#1E1218;--light:#F6F2EF;--gold:#C9A96E;--white:#FFFFFF}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Montserrat',sans-serif;color:var(--dark);background:var(--light);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400}
+
+/* Progress Bar */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--burgundy),var(--gold));z-index:9999;width:0;transition:width .1s}
+
+/* Film Grain */
+.grain{position:fixed;top:-50%;left:-50%;width:200%;height:200%;pointer-events:none;z-index:9998;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Sections */
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px 24px;position:relative}
+section.dark{background:var(--dark);color:var(--white)}
+section.light{background:var(--light);color:var(--dark)}
+
+/* Reveal animations */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-child{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal-child.visible{opacity:1;transform:translateY(0)}
+
+/* ===== SLIDE 1: COVER ===== */
+.cover{background:linear-gradient(160deg,#1E1218 0%,#2a1520 40%,#9B1B21 100%);min-height:100vh;text-align:center;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 40%,rgba(155,27,33,.25) 0%,transparent 70%)}
+.cover-logo{width:180px;height:auto;filter:drop-shadow(0 0 60px rgba(155,27,33,.5));margin-bottom:48px;animation:glow 4s ease-in-out infinite alternate}
+@keyframes glow{0%{filter:drop-shadow(0 0 40px rgba(155,27,33,.3))}100%{filter:drop-shadow(0 0 80px rgba(155,27,33,.6))}}
+.cover h1{font-size:clamp(2.2rem,6vw,4.5rem);color:var(--white);letter-spacing:-.02em;margin-bottom:16px;font-style:italic;font-weight:400}
+.cover .subtitle{font-family:'Montserrat',sans-serif;font-size:clamp(.85rem,2vw,1.1rem);color:var(--beige);letter-spacing:.15em;text-transform:uppercase;font-weight:300;margin-bottom:32px}
+.cover .prepared{font-family:'Montserrat',sans-serif;font-size:.75rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
+.scroll-indicator span{display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ===== SLIDE 2: PROBLEM ===== */
+.problem{text-align:center;max-width:900px;margin:0 auto}
+.problem h2{font-size:clamp(1.6rem,4vw,2.8rem);color:var(--dark);margin-bottom:60px;line-height:1.2}
+.pain-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;width:100%}
+.pain-point{text-align:center}
+.pain-icon{font-size:2.4rem;margin-bottom:16px;display:block}
+.pain-point p{font-size:1rem;line-height:1.6;color:#4a3a42;font-weight:400}
+
+/* ===== SLIDE 3: CONTENT SHOWCASE ===== */
+.showcase{background:linear-gradient(180deg,#1E1218,#2a1a22);padding-bottom:60px}
+.showcase h2{font-size:clamp(1.4rem,3.5vw,2.4rem);text-align:center;margin-bottom:16px;color:var(--white);max-width:700px;line-height:1.3}
+.showcase .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;font-weight:600}
+.image-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;max-width:1000px;width:100%;margin:48px auto 40px}
+.image-grid img{width:100%;border-radius:12px;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;cursor:pointer;aspect-ratio:4/5;object-fit:cover}
+.image-grid img:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(155,27,33,.3)}
+.showcase .caption{text-align:center;font-size:.85rem;color:var(--beige);letter-spacing:.08em;max-width:700px;line-height:1.7;opacity:.8}
+
+/* ===== SLIDE 4: CAROUSEL DEMO ===== */
+.carousel-demo{text-align:center;max-width:100%}
+.carousel-demo h2{font-size:clamp(1.4rem,3.5vw,2.4rem);margin-bottom:12px;line-height:1.3}
+.carousel-demo .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;font-weight:600}
+.carousel-scroll{display:flex;gap:16px;overflow-x:auto;padding:40px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;max-width:100vw;scrollbar-width:none}
+.carousel-scroll::-webkit-scrollbar{display:none}
+.carousel-scroll img{flex:0 0 auto;width:260px;border-radius:16px;scroll-snap-align:center;box-shadow:0 8px 32px rgba(30,18,24,.12);transition:transform .3s}
+.carousel-scroll img:hover{transform:scale(1.03)}
+.carousel-demo .desc{max-width:600px;margin:24px auto 0;font-size:.95rem;color:#5a4a52;line-height:1.7}
+.carousel-demo .note{margin-top:20px;font-size:.8rem;color:var(--burgundy);font-weight:500;letter-spacing:.04em}
+
+/* ===== SLIDE 5: STORIES ===== */
+.stories{background:linear-gradient(160deg,#1E1218,#3a1520)}
+.stories h2{font-size:clamp(1.4rem,3.5vw,2.4rem);text-align:center;color:var(--white);margin-bottom:12px}
+.stories .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.stories-row{display:flex;gap:16px;justify-content:center;align-items:center;margin:40px 0 32px;flex-wrap:wrap}
+.stories-row img{width:180px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.4);transition:transform .3s}
+.stories-row img:hover{transform:scale(1.05)}
+.stories .caption{text-align:center;font-size:.9rem;color:var(--beige);max-width:500px;line-height:1.7;opacity:.85}
+
+/* ===== SLIDE 6: WEEKLY CALENDAR ===== */
+.weekly{text-align:center}
+.weekly h2{font-size:clamp(1.4rem,3.5vw,2.4rem);margin-bottom:48px;line-height:1.3}
+.weekly .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;font-weight:600}
+.calendar{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;max-width:1000px;width:100%}
+.day-card{background:var(--white);border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 4px 20px rgba(30,18,24,.06);transition:transform .3s,box-shadow .3s}
+.day-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(30,18,24,.12)}
+.day-card .day-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);font-weight:700;margin-bottom:10px}
+.day-card img{width:100%;border-radius:10px;margin-bottom:10px;aspect-ratio:4/5;object-fit:cover}
+.day-card .day-desc{font-size:.72rem;color:#5a4a52;line-height:1.4}
+
+/* ===== SLIDE 7: PRICING ===== */
+.pricing{background:linear-gradient(160deg,#1E1218,#2a1520);padding:80px 24px 60px}
+.pricing h2{font-size:clamp(1.6rem,4vw,2.8rem);color:var(--white);text-align:center;margin-bottom:48px}
+.pricing .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600;text-align:center}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;width:100%}
+.tier{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 28px;position:relative;transition:transform .3s,border-color .3s}
+.tier:hover{transform:translateY(-4px);border-color:rgba(155,27,33,.4)}
+.tier.popular{border-color:var(--burgundy);background:rgba(155,27,33,.08)}
+.tier .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--burgundy);color:var(--white);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 16px;border-radius:20px;font-weight:600;white-space:nowrap}
+.tier h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:4px}
+.tier .price{font-size:2rem;font-weight:700;color:var(--white);margin-bottom:20px}
+.tier .price span{font-size:.85rem;font-weight:300;color:var(--beige);opacity:.7}
+.tier ul{list-style:none;margin-bottom:28px}
+.tier ul li{font-size:.82rem;color:rgba(255,255,255,.75);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.5}
+.tier ul li::before{content:'✦ ';color:var(--burgundy);font-size:.65rem}
+.tier-btn{display:block;width:100%;padding:14px;border:1px solid var(--burgundy);background:transparent;color:var(--white);font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:background .3s,color .3s;text-decoration:none;text-align:center}
+.tier-btn:hover{background:var(--burgundy);color:var(--white)}
+.tier.popular .tier-btn{background:var(--burgundy);color:var(--white)}
+.tier.popular .tier-btn:hover{background:#b82028}
+.pricing .all-plans{text-align:center;margin-top:40px;font-size:.82rem;color:var(--beige);max-width:650px;line-height:1.7;opacity:.7}
+.pricing .no-contract{text-align:center;margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+
+/* ===== SLIDE 8: CLOSE ===== */
+.close-section{background:linear-gradient(160deg,#1E1218 0%,#9B1B21 100%);text-align:center;position:relative}
+.close-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 60%,rgba(155,27,33,.2),transparent 70%)}
+.close-section h2{font-size:clamp(1.5rem,4vw,2.6rem);color:var(--white);margin-bottom:40px;line-height:1.3;max-width:600px;position:relative}
+.close-logo{width:140px;margin-bottom:32px;opacity:.9;position:relative}
+.close-contact{position:relative;color:var(--beige);font-size:.9rem;line-height:2;margin-bottom:40px}
+.close-contact strong{color:var(--white);font-weight:600}
+.close-contact a{color:var(--beige);text-decoration:none;transition:color .3s}
+.close-contact a:hover{color:var(--white)}
+.cta-btn{display:inline-block;padding:18px 48px;background:var(--white);color:var(--dark);font-family:'Montserrat',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;border-radius:50px;text-decoration:none;position:relative;transition:transform .3s,box-shadow .3s;animation:pulse-glow 2.5s ease-in-out infinite}
+.cta-btn:hover{transform:scale(1.05);box-shadow:0 12px 40px rgba(255,255,255,.2)}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(255,255,255,.15)}50%{box-shadow:0 0 40px rgba(255,255,255,.3),0 0 80px rgba(155,27,33,.2)}}
+
+/* Parallax */
+.parallax-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
+
+/* Mobile */
+@media(max-width:768px){
+  section{padding:60px 20px}
+  .image-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stories-row img{width:100px}
+  .calendar{grid-template-columns:repeat(2,1fr)}
+  .tiers{grid-template-columns:1fr}
+  .cover-logo{width:140px}
+  .carousel-scroll img{width:200px}
+}
+@media(max-width:480px){
+  .image-grid{grid-template-columns:repeat(2,1fr)}
+  .stories-row img{width:90px}
+  .calendar{grid-template-columns:repeat(2,1fr)}
+  .carousel-scroll img{width:180px}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div class="grain"></div>
+
+<!-- SLIDE 1: COVER -->
+<section class="cover dark">
+  <div class="parallax-bg" data-speed="0.3"></div>
+  <img src="images/rosies-logo.png" alt="Rosie's Beauty Spa" class="cover-logo reveal" loading="lazy">
+  <h1 class="reveal">your content. elevated.</h1>
+  <p class="subtitle reveal">a social media content proposal for Rosie's Beauty Spa</p>
+  <p class="prepared reveal">prepared by Taylormade Creative · April 2026</p>
+  <div class="scroll-indicator">
+    scroll
+    <span></span>
+  </div>
+</section>
+
+<!-- SLIDE 2: THE PROBLEM -->
+<section class="light problem-section">
+  <div class="problem">
+    <h2 class="reveal">you're too busy treating skin to create content</h2>
+    <div class="pain-points">
+      <div class="pain-point reveal-child">
+        <span class="pain-icon">⏳</span>
+        <p>posting takes hours you don't have</p>
+      </div>
+      <div class="pain-point reveal-child">
+        <span class="pain-icon">🔬</span>
+        <p>generic content doesn't match your expertise</p>
+      </div>
+      <div class="pain-point reveal-child">
+        <span class="pain-icon">📱</span>
+        <p>your competitors are posting daily — you're not</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: THE CONTENT -->
+<section class="dark showcase">
+  <p class="section-label reveal">the work</p>
+  <h2 class="reveal">content that educates, converts, and looks like nothing else on instagram</h2>
+  <div class="image-grid">
+    <img src="images/mon-why-dark-spots-form.png" alt="Dark Spots Education" class="reveal-child" loading="lazy">
+    <img src="images/tue-1-peel-intro.png" alt="Chemical Peel Intro" class="reveal-child" loading="lazy">
+    <img src="images/thu-waxing-vs-shaving.png" alt="Waxing vs Shaving" class="reveal-child" loading="lazy">
+    <img src="images/chart-ingredients.png" alt="Ingredient Chart" class="reveal-child" loading="lazy">
+    <img src="images/sat-microneedling.png" alt="Microneedling Science" class="reveal-child" loading="lazy">
+    <img src="images/chart-collagen.png" alt="Collagen Chart" class="reveal-child" loading="lazy">
+    <img src="images/fri-story-3-book-now.png" alt="Book Now CTA" class="reveal-child" loading="lazy">
+    <img src="images/wed-melanin-skincare.png" alt="Melanin Skincare" class="reveal-child" loading="lazy">
+  </div>
+  <p class="caption reveal">3D skin science · educational infographics · branded carousels · booking CTAs on every post</p>
+</section>
+
+<!-- SLIDE 4: CAROUSEL DEMO -->
+<section class="light carousel-demo">
+  <p class="section-label reveal">carousel format</p>
+  <h2 class="reveal">carousels that teach — and sell</h2>
+  <div class="carousel-scroll">
+    <img src="images/tue-1-peel-intro.png" alt="Carousel 1: Intro" loading="lazy">
+    <img src="images/tue-2-acid-works.png" alt="Carousel 2: How Acid Works" loading="lazy">
+    <img src="images/tue-3-skin-lifts.png" alt="Carousel 3: Skin Lifts" loading="lazy">
+    <img src="images/tue-4-collagen-rebuilds.png" alt="Carousel 4: Collagen Rebuilds" loading="lazy">
+    <img src="images/tue-5-result.png" alt="Carousel 5: Result" loading="lazy">
+  </div>
+  <p class="desc reveal">each carousel walks your audience through the science behind your treatments. they save it, share it, and book.</p>
+  <p class="note reveal">5 carousel images · step-by-step education · branded progress dots · CTA on final slide</p>
+</section>
+
+<!-- SLIDE 5: STORIES DEMO -->
+<section class="dark stories">
+  <p class="section-label reveal">stories format</p>
+  <h2 class="reveal">stories that stop thumbs</h2>
+  <div class="stories-row">
+    <img src="images/fri-story-1-lemon-tip.png" alt="Story: Lemon Tip" class="reveal-child" loading="lazy">
+    <img src="images/fri-story-2-melanocyte.png" alt="Story: Melanocyte Science" class="reveal-child" loading="lazy">
+    <img src="images/fri-story-3-book-now.png" alt="Story: Book Now" class="reveal-child" loading="lazy">
+  </div>
+  <p class="caption reveal">tips, science, and booking CTAs — the 3-story formula that drives DMs</p>
+</section>
+
+<!-- SLIDE 6: ONE WEEK PREVIEW -->
+<section class="light weekly">
+  <p class="section-label reveal">content calendar</p>
+  <h2 class="reveal">here's what one week looks like</h2>
+  <div class="calendar">
+    <div class="day-card reveal-child">
+      <div class="day-label">Monday</div>
+      <img src="images/mon-why-dark-spots-form.png" alt="Monday content" loading="lazy">
+      <div class="day-desc">skin science education</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Tuesday</div>
+      <img src="images/tue-1-peel-intro.png" alt="Tuesday content" loading="lazy">
+      <div class="day-desc">carousel: treatment guide</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Wednesday</div>
+      <img src="images/wed-melanin-skincare.png" alt="Wednesday content" loading="lazy">
+      <div class="day-desc">skincare truth</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Thursday</div>
+      <img src="images/thu-waxing-vs-shaving.png" alt="Thursday content" loading="lazy">
+      <div class="day-desc">save-worthy comparison</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Friday</div>
+      <img src="images/fri-story-1-lemon-tip.png" alt="Friday content" loading="lazy">
+      <div class="day-desc">3 stories: tip + science + booking</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Saturday</div>
+      <img src="images/sat-microneedling.png" alt="Saturday content" loading="lazy">
+      <div class="day-desc">treatment science</div>
+    </div>
+    <div class="day-card reveal-child">
+      <div class="day-label">Sunday</div>
+      <img src="images/sun-1-first-visit.png" alt="Sunday content" loading="lazy">
+      <div class="day-desc">carousel: new client guide</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: PRICING -->
+<section class="dark pricing">
+  <p class="section-label reveal">investment</p>
+  <h2 class="reveal">choose your level</h2>
+  <div class="tiers">
+    <div class="tier reveal-child">
+      <h3>Starter</h3>
+      <div class="price">$497<span>/mo</span></div>
+      <ul>
+        <li>12 posts per month (3/week)</li>
+        <li>Feed posts + educational graphics</li>
+        <li>Captions + hashtags written for you</li>
+        <li>Monthly content calendar</li>
+        <li>@rosiesbeautyspatx branded</li>
+      </ul>
+      <a href="tel:8177071291" class="tier-btn">let's talk</a>
+    </div>
+    <div class="tier popular reveal-child">
+      <div class="badge">Most Popular</div>
+      <h3>Growth</h3>
+      <div class="price">$797<span>/mo</span></div>
+      <ul>
+        <li>20 posts per month (5/week)</li>
+        <li>Everything in Starter +</li>
+        <li>Carousel posts (2/month)</li>
+        <li>Instagram Stories (3 sets/month)</li>
+        <li>Save-worthy infographic charts</li>
+        <li>Monthly strategy check-in call</li>
+      </ul>
+      <a href="tel:8177071291" class="tier-btn">let's talk</a>
+    </div>
+    <div class="tier reveal-child">
+      <div class="badge" style="background:var(--gold);color:var(--dark)">Best Value</div>
+      <h3>Premium</h3>
+      <div class="price">$1,197<span>/mo</span></div>
+      <ul>
+        <li>Daily content (28–30 posts/month)</li>
+        <li>Everything in Growth +</li>
+        <li>Animated Ashley avatar content</li>
+        <li>Ad-ready landing page graphics</li>
+        <li>Weekly analytics review</li>
+        <li>Priority DM support</li>
+        <li>Content repurposed for TikTok</li>
+      </ul>
+      <a href="tel:8177071291" class="tier-btn">let's talk</a>
+    </div>
+  </div>
+  <p class="all-plans reveal">all plans include: 3D skin science visuals · branded typography · booking CTAs · ready-to-post files</p>
+  <p class="no-contract reveal">month-to-month. no contracts. cancel anytime.</p>
+</section>
+
+<!-- SLIDE 8: CLOSE -->
+<section class="dark close-section">
+  <img src="images/rosies-logo.png" alt="Rosie's Beauty Spa" class="close-logo reveal" loading="lazy">
+  <h2 class="reveal">let's make rosie's the most-followed spa in arlington</h2>
+  <div class="close-contact reveal">
+    <strong>Nelson Taylor</strong> · Taylormade Creative<br>
+    <a href="tel:8177071291">(817) 707-1291</a><br>
+    <a href="mailto:taylormademd@gmail.com">taylormademd@gmail.com</a>
+  </div>
+  <a href="tel:8177071291" class="cta-btn reveal">schedule a call</a>
+</section>
+
+<script>
+// Scroll progress bar
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  const s=window.scrollY;
+  progress.style.width=(s/h*100)+'%';
+},{passive:true});
+
+// Reveal on scroll (IntersectionObserver)
+const revealEls=document.querySelectorAll('.reveal,.reveal-child');
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      const el=entry.target;
+      // Stagger children
+      if(el.classList.contains('reveal-child')){
+        const parent=el.parentElement;
+        const siblings=[...parent.querySelectorAll('.reveal-child')];
+        const idx=siblings.indexOf(el);
+        el.style.transitionDelay=(idx*120)+'ms';
+      }
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+
+// Simple parallax on dark sections
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(!ticking){
+    requestAnimationFrame(()=>{
+      const bgs=document.querySelectorAll('.parallax-bg');
+      bgs.forEach(bg=>{
+        const section=bg.parentElement;
+        const rect=section.getBoundingClientRect();
+        const speed=parseFloat(bg.dataset.speed)||0.3;
+        bg.style.transform='translateY('+(rect.top*speed)+'px)';
+      });
+      ticking=false;
+    });
+    ticking=true;
+  }
+},{passive:true});
+</script>
+</body>
+</html>
