@@ -34,7 +34,7 @@ section.light{background:var(--light);color:var(--dark)}
 /* ===== SLIDE 1: COVER ===== */
 .cover{background:linear-gradient(160deg,#1E1218 0%,#2a1520 40%,#9B1B21 100%);min-height:100vh;text-align:center;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 40%,rgba(155,27,33,.25) 0%,transparent 70%)}
-.cover-logo{width:180px;height:auto;filter:drop-shadow(0 0 60px rgba(155,27,33,.5));margin-bottom:48px;animation:glow 4s ease-in-out infinite alternate}
+.cover-logo{width:320px;height:auto;filter:drop-shadow(0 0 60px rgba(155,27,33,.5));margin-bottom:16px;animation:glow 4s ease-in-out infinite alternate}
 @keyframes glow{0%{filter:drop-shadow(0 0 40px rgba(155,27,33,.3))}100%{filter:drop-shadow(0 0 80px rgba(155,27,33,.6))}}
 .cover h1{font-size:clamp(2.2rem,6vw,4.5rem);color:var(--white);letter-spacing:-.02em;margin-bottom:16px;font-style:italic;font-weight:400}
 .cover .subtitle{font-family:'Montserrat',sans-serif;font-size:clamp(.85rem,2vw,1.1rem);color:var(--beige);letter-spacing:.15em;text-transform:uppercase;font-weight:300;margin-bottom:32px}
@@ -157,7 +157,7 @@ section.light{background:var(--light);color:var(--dark)}
   .stories-row img{width:100px}
   .calendar{grid-template-columns:repeat(2,1fr)}
   .tiers{grid-template-columns:1fr}
-  .cover-logo{width:140px}
+  .cover-logo{width:240px}
   .carousel-scroll img{width:200px}
 }
 @media(max-width:480px){
