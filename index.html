@@ -51,6 +51,17 @@ section.light{background:var(--light);color:var(--dark)}
 .pain-icon{font-size:2.4rem;margin-bottom:16px;display:block}
 .pain-point p{font-size:1rem;line-height:1.6;color:#4a3a42;font-weight:400}
 
+/* ===== SLIDE 2.5: THE MATH ===== */
+.math-slide{background:linear-gradient(160deg,#1E1218,#2a1520);text-align:center}
+.math-slide h2{font-size:clamp(1.6rem,4vw,2.8rem);color:var(--white);margin-bottom:48px;font-style:italic}
+.math-slide .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.roi-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:950px;width:100%;margin-bottom:40px}
+.roi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 28px;transition:transform .3s,border-color .3s}
+.roi-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.4)}
+.roi-card .roi-icon{font-size:2.4rem;margin-bottom:16px;display:block}
+.roi-card .roi-stat{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--gold);line-height:1.4;margin-bottom:0}
+.math-subtext{font-size:.88rem;color:var(--beige);max-width:600px;line-height:1.8;opacity:.8;font-style:italic}
+
 /* ===== SLIDE 3: CONTENT SHOWCASE ===== */
 .showcase{background:linear-gradient(180deg,#1E1218,#2a1a22);padding-bottom:60px}
 .showcase h2{font-size:clamp(1.4rem,3.5vw,2.4rem);text-align:center;margin-bottom:16px;color:var(--white);max-width:700px;line-height:1.3}
@@ -112,6 +123,12 @@ section.light{background:var(--light);color:var(--dark)}
 .tier.popular .tier-btn:hover{background:#b82028}
 .pricing .all-plans{text-align:center;margin-top:40px;font-size:.82rem;color:var(--beige);max-width:650px;line-height:1.7;opacity:.7}
 .pricing .no-contract{text-align:center;margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase}
+.trial-box{margin-top:48px;text-align:center;border-top:1px solid rgba(255,255,255,.08);padding-top:40px;max-width:600px;width:100%}
+.urgency-line{font-size:.78rem;color:#C9A96E;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:32px;opacity:.9}
+.trial-box .trial-label{font-size:.8rem;color:var(--beige);opacity:.7;margin-bottom:10px;letter-spacing:.06em}
+.trial-box .trial-desc{font-size:1.05rem;color:var(--white);font-family:'Playfair Display',serif;font-style:italic;margin-bottom:24px;line-height:1.5}
+.trial-btn{display:inline-block;padding:14px 40px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-radius:50px;text-decoration:none;transition:background .3s,color .3s}
+.trial-btn:hover{background:var(--gold);color:var(--dark)}
 
 /* ===== SLIDE 8: CLOSE ===== */
 .close-section{background:linear-gradient(160deg,#1E1218 0%,#9B1B21 100%);text-align:center;position:relative}
@@ -125,6 +142,10 @@ section.light{background:var(--light);color:var(--dark)}
 .cta-btn{display:inline-block;padding:18px 48px;background:var(--white);color:var(--dark);font-family:'Montserrat',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;border-radius:50px;text-decoration:none;position:relative;transition:transform .3s,box-shadow .3s;animation:pulse-glow 2.5s ease-in-out infinite}
 .cta-btn:hover{transform:scale(1.05);box-shadow:0 12px 40px rgba(255,255,255,.2)}
 @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(255,255,255,.15)}50%{box-shadow:0 0 40px rgba(255,255,255,.3),0 0 80px rgba(155,27,33,.2)}}
+.cta-secondary{display:inline-block;margin-top:16px;padding:14px 40px;border:1px solid rgba(255,255,255,.3);background:transparent;color:rgba(255,255,255,.8);font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-radius:50px;text-decoration:none;transition:border-color .3s,color .3s}
+.cta-secondary:hover{border-color:rgba(255,255,255,.7);color:var(--white)}
+.cta-group{display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
+.close-cred{margin-top:32px;font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.06em;line-height:1.7;position:relative}
 
 /* Parallax */
 .parallax-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
@@ -184,6 +205,27 @@ section.light{background:var(--light);color:var(--dark)}
       </div>
     </div>
   </div>
+</section>
+
+<!-- SLIDE 2.5: THE MATH -->
+<section class="dark math-slide">
+  <p class="section-label reveal">roi</p>
+  <h2 class="reveal">the math that matters</h2>
+  <div class="roi-cards">
+    <div class="roi-card reveal-child">
+      <span class="roi-icon">💆‍♀️</span>
+      <p class="roi-stat">your average facial: $189</p>
+    </div>
+    <div class="roi-card reveal-child">
+      <span class="roi-icon">📈</span>
+      <p class="roi-stat">one new client per week from instagram: $756/month</p>
+    </div>
+    <div class="roi-card reveal-child">
+      <span class="roi-icon">✅</span>
+      <p class="roi-stat">the growth plan pays for itself in 4 days</p>
+    </div>
+  </div>
+  <p class="math-subtext reveal">content that educates builds trust. trust drives bookings. bookings drive revenue.</p>
 </section>
 
 <!-- SLIDE 3: THE CONTENT -->
@@ -277,6 +319,7 @@ section.light{background:var(--light);color:var(--dark)}
 <section class="dark pricing">
   <p class="section-label reveal">investment</p>
   <h2 class="reveal">choose your level</h2>
+  <p class="urgency-line reveal">currently booking content packages for april &middot; 2 spots remaining</p>
   <div class="tiers">
     <div class="tier reveal-child">
       <h3>Starter</h3>
@@ -322,18 +365,27 @@ section.light{background:var(--light);color:var(--dark)}
   </div>
   <p class="all-plans reveal">all plans include: 3D skin science visuals · branded typography · booking CTAs · ready-to-post files</p>
   <p class="no-contract reveal">month-to-month. no contracts. cancel anytime.</p>
+  <div class="trial-box reveal">
+    <p class="trial-label">want to test it first?</p>
+    <p class="trial-desc">$297 one-time content pack &middot; 5 posts + captions &middot; see the quality before you commit</p>
+    <a href="sms:8177071291?body=Hey%20Nelson%2C%20I'm%20interested%20in%20the%20content%20package%20for%20Rosie's" class="trial-btn">let's try it</a>
+  </div>
 </section>
 
 <!-- SLIDE 8: CLOSE -->
 <section class="dark close-section">
   <img src="images/rosies-logo.png" alt="Rosie's Beauty Spa" class="close-logo reveal" loading="lazy">
-  <h2 class="reveal">let's make rosie's the most-followed spa in arlington</h2>
+  <h2 class="reveal">let's fill your books from instagram</h2>
   <div class="close-contact reveal">
     <strong>Nelson Taylor</strong> · Taylormade Creative<br>
     <a href="tel:8177071291">(817) 707-1291</a><br>
     <a href="mailto:taylormademd@gmail.com">taylormademd@gmail.com</a>
   </div>
-  <a href="tel:8177071291" class="cta-btn reveal">schedule a call</a>
+  <div class="cta-group reveal">
+    <a href="sms:8177071291?body=Hey%20Nelson%2C%20I'm%20interested%20in%20the%20content%20package%20for%20Rosie's" class="cta-btn">schedule a call</a>
+    <a href="https://instagram.com/taylormade_creative" target="_blank" rel="noopener" class="cta-secondary">or DM me on instagram</a>
+  </div>
+  <p class="close-cred reveal">14 years in creative direction &middot; BFA graphic design &middot; clients across DFW</p>
 </section>
 
 <script>
