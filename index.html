@@ -147,10 +147,240 @@ section.light{background:var(--light);color:var(--dark)}
 .cta-group{display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
 .close-cred{margin-top:32px;font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.06em;line-height:1.7;position:relative}
 
+/* ===== REEL CENTERPIECE ===== */
+.reel-section{
+  background:#000;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0;
+  gap:0;
+  position:relative;
+  overflow:hidden;
+}
+.reel-section::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(155,27,33,.12) 0%,transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+.reel-left{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 48px 80px 80px;
+  position:relative;
+  z-index:1;
+}
+.reel-phone{
+  position:relative;
+  width:260px;
+  flex-shrink:0;
+}
+/* Phone shell */
+.reel-phone-shell{
+  position:relative;
+  background:#111;
+  border-radius:44px;
+  padding:14px 12px;
+  box-shadow:
+    0 0 0 1.5px rgba(255,255,255,.12),
+    0 0 0 3px rgba(255,255,255,.04),
+    0 40px 120px rgba(0,0,0,.9),
+    0 0 80px rgba(155,27,33,.15);
+}
+/* Notch */
+.reel-phone-shell::before{
+  content:'';
+  position:absolute;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;
+  height:6px;
+  background:#1a1a1a;
+  border-radius:20px;
+  z-index:3;
+}
+/* Side buttons */
+.reel-phone-shell::after{
+  content:'';
+  position:absolute;
+  right:-3px;
+  top:90px;
+  width:3px;
+  height:60px;
+  background:rgba(255,255,255,.08);
+  border-radius:0 2px 2px 0;
+}
+.reel-video-wrap{
+  border-radius:32px;
+  overflow:hidden;
+  aspect-ratio:9/16;
+  background:#000;
+  position:relative;
+}
+.reel-video-wrap video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+/* Unmute button */
+.reel-unmute{
+  position:absolute;
+  bottom:16px;
+  right:16px;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:background .2s,border-color .2s;
+  z-index:10;
+}
+.reel-unmute:hover{
+  background:rgba(155,27,33,.7);
+  border-color:rgba(155,27,33,.5);
+}
+.reel-unmute svg{
+  width:16px;
+  height:16px;
+  fill:none;
+  stroke:#fff;
+  stroke-width:1.8;
+}
+/* Play indicator — subtle pulsing ring while playing */
+.reel-phone::after{
+  content:'';
+  position:absolute;
+  inset:-20px;
+  border-radius:64px;
+  border:1px solid rgba(155,27,33,.2);
+  animation:reel-ring 3s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes reel-ring{
+  0%,100%{opacity:.2;transform:scale(1)}
+  50%{opacity:.6;transform:scale(1.015)}
+}
+
+/* Right copy panel */
+.reel-right{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:80px 80px 80px 48px;
+  position:relative;
+  z-index:1;
+}
+.reel-label{
+  font-family:'Montserrat',sans-serif;
+  font-size:.65rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--burgundy);
+  font-weight:700;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.reel-label::before{
+  content:'';
+  display:block;
+  width:28px;
+  height:1px;
+  background:var(--burgundy);
+}
+.reel-setup{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.5rem,2.8vw,2.4rem);
+  color:#fff;
+  line-height:1.25;
+  margin-bottom:28px;
+  font-weight:400;
+}
+.reel-setup em{
+  font-style:italic;
+  color:var(--gold);
+}
+.reel-divider{
+  width:40px;
+  height:1px;
+  background:rgba(201,169,110,.4);
+  margin-bottom:28px;
+}
+.reel-payoff{
+  font-family:'Montserrat',sans-serif;
+  font-size:.92rem;
+  color:rgba(231,212,204,.8);
+  line-height:1.85;
+  margin-bottom:36px;
+  max-width:380px;
+}
+.reel-payoff strong{
+  color:#fff;
+  font-weight:600;
+}
+.reel-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.reel-tag{
+  font-family:'Montserrat',sans-serif;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:rgba(201,169,110,.8);
+  border:1px solid rgba(201,169,110,.25);
+  border-radius:20px;
+  padding:5px 14px;
+  font-weight:500;
+}
+
 /* Parallax */
 .parallax-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
 
 /* Mobile */
+@media(max-width:768px){
+  .reel-section{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:72px 24px;
+    gap:48px;
+  }
+  .reel-left{
+    padding:0;
+    justify-content:center;
+  }
+  .reel-phone{
+    width:220px;
+  }
+  .reel-right{
+    padding:0;
+  }
+  .reel-setup{
+    font-size:1.5rem;
+  }
+}
+@media(max-width:480px){
+  .reel-phone{
+    width:190px;
+  }
+}
+
+/* Mobile original rules continue below */
 @media(max-width:768px){
   section{padding:60px 20px}
   .image-grid{grid-template-columns:repeat(2,1fr);gap:8px}
@@ -246,6 +476,65 @@ section.light{background:var(--light);color:var(--dark)}
     <img src="images/wed-melanin-skincare.png" alt="Melanin Skincare" class="reveal-child" loading="lazy">
   </div>
   <p class="caption reveal">3D skin science · educational infographics · branded carousels · booking CTAs on every post</p>
+</section>
+
+<!-- REEL CENTERPIECE: THE MOMENT -->
+<section class="reel-section">
+
+  <!-- LEFT: Phone Mockup with Video -->
+  <div class="reel-left">
+    <div class="reel-phone">
+      <div class="reel-phone-shell">
+        <div class="reel-video-wrap">
+          <video
+            id="reel-vid"
+            src="images/rosies-reel.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+          <button class="reel-unmute" id="reel-unmute-btn" aria-label="Toggle sound">
+            <!-- Muted icon (shown by default) -->
+            <svg id="icon-muted" viewBox="0 0 24 24">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <line x1="23" y1="9" x2="17" y2="15"/>
+              <line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+            <!-- Unmuted icon (hidden by default) -->
+            <svg id="icon-unmuted" viewBox="0 0 24 24" style="display:none">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M19.07 4.93a10 10 0 010 14.14"/>
+              <path d="M15.54 8.46a5 5 0 010 7.07"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Copy -->
+  <div class="reel-right reveal">
+    <p class="reel-label">signature reel</p>
+    <h2 class="reel-setup">
+      your clients need to <em>feel</em><br>
+      what you do to their skin.
+    </h2>
+    <div class="reel-divider"></div>
+    <p class="reel-payoff">
+      This is the reel that stops the scroll.<br><br>
+      <strong>3D-animated microneedling</strong> on melanin-rich skin — needles entering, golden growth factors flooding in, collagen rebuilding in real time. Cinematic. Educational. Exclusive to Rosie's.<br><br>
+      No other spa in DFW has content like this.
+    </p>
+    <div class="reel-tags">
+      <span class="reel-tag">3D animated</span>
+      <span class="reel-tag">9:16 reel format</span>
+      <span class="reel-tag">melanin-rich skin</span>
+      <span class="reel-tag">ready to post</span>
+    </div>
+  </div>
+
 </section>
 
 <!-- SLIDE 4: CAROUSEL DEMO -->
@@ -421,6 +710,45 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
 revealEls.forEach(el=>observer.observe(el));
+
+// Reel unmute toggle
+(function(){
+  var vid=document.getElementById('reel-vid');
+  var btn=document.getElementById('reel-unmute-btn');
+  var iconMuted=document.getElementById('icon-muted');
+  var iconUnmuted=document.getElementById('icon-unmuted');
+  if(!vid||!btn) return;
+
+  // Ensure autoplay fires even on restrictive browsers
+  vid.play().catch(function(){});
+
+  btn.addEventListener('click',function(){
+    vid.muted=!vid.muted;
+    if(vid.muted){
+      iconMuted.style.display='';
+      iconUnmuted.style.display='none';
+      btn.setAttribute('aria-label','Unmute video');
+    } else {
+      iconMuted.style.display='none';
+      iconUnmuted.style.display='';
+      btn.setAttribute('aria-label','Mute video');
+      // Re-seek to 0 if it failed to play due to mute restrictions
+      if(vid.paused) vid.play().catch(function(){});
+    }
+  });
+
+  // Pause/resume based on viewport visibility for battery/performance
+  var reelObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        vid.play().catch(function(){});
+      } else {
+        vid.pause();
+      }
+    });
+  },{threshold:0.3});
+  reelObs.observe(vid);
+})();
 
 // Simple parallax on dark sections
 let ticking=false;
