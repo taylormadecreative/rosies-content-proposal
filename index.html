@@ -86,8 +86,8 @@ section.light{background:var(--light);color:var(--dark)}
 .stories{background:linear-gradient(160deg,#1E1218,#3a1520)}
 .stories h2{font-size:clamp(1.4rem,3.5vw,2.4rem);text-align:center;color:var(--white);margin-bottom:12px}
 .stories .section-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
-.stories-row{display:flex;gap:16px;justify-content:center;align-items:center;margin:40px 0 32px;flex-wrap:wrap}
-.stories-row img{width:180px;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.4);transition:transform .3s}
+.stories-row{display:flex;gap:20px;justify-content:center;align-items:flex-start;margin:40px 0 32px;flex-wrap:nowrap;overflow-x:auto;padding:0 20px}
+.stories-row img{width:240px;height:auto;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.4);transition:transform .3s;flex-shrink:0}
 .stories-row img:hover{transform:scale(1.05)}
 .stories .caption{text-align:center;font-size:.9rem;color:var(--beige);max-width:500px;line-height:1.7;opacity:.85}
 
@@ -154,7 +154,7 @@ section.light{background:var(--light);color:var(--dark)}
 @media(max-width:768px){
   section{padding:60px 20px}
   .image-grid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .stories-row img{width:100px}
+  .stories-row img{width:180px}
   .calendar{grid-template-columns:repeat(2,1fr)}
   .tiers{grid-template-columns:1fr}
   .cover-logo{width:240px}
@@ -162,7 +162,7 @@ section.light{background:var(--light);color:var(--dark)}
 }
 @media(max-width:480px){
   .image-grid{grid-template-columns:repeat(2,1fr)}
-  .stories-row img{width:90px}
+  .stories-row img{width:140px}
   .calendar{grid-template-columns:repeat(2,1fr)}
   .carousel-scroll img{width:180px}
 }
